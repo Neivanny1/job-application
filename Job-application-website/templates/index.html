@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Eric INC</title>
+    {% include 'bootstrap.html' %}
+    <style>
+      #banner {
+        height: 360px;
+        width: 100%;
+        object-fit: cover;
+        margin-top: 16px;
+      }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html'%}
+    <div class="container">
+    <h1 class="text-center mt-2 mb-4">Eric Careers</h1>
+    <img class="img-fluid" height="320" src="{{ url_for('static', filename='img/career.jpg') }}" alt="career">
+    <h2 class="text-center mt-2 mb-4" >About Eric</h2>
+    <div class="row" style="margin-bottom:32px">
+        <div class="col-md-6">
+      <p class="lead">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Voluptate earum sunt molestias tempora reprehenderit 
+        autem sint perferendis fugit odit nam sed,
+        eaque soluta deleniti deserunt quidem rem facilis tempore. Perspiciatis?
+      </p>
+        </div>
+        <div class="d-none d-md-block col-md-6">
+        <img src="../static/img/Capture.PNG" style="height:320px;border-radius:4px;">
+        </div>
+      </div> 
+    <h2 class="text-center mt-2 mb-4" >Open Position</h2>
+    <div class="bodytext">
+        {% for job in jobs %}
+        {% include 'jobs.html'%}
+        {% endfor %}
+    </div>
+    <div class="text-center">
+        <a class="btn btn-primary btn-lg" href=" mailto:nevileneivanny@gmail.com?subject=Service%20Inquiry&body=Your%20Name%3A%20%3Chere%3E%0D%0APhone%3A%20%3Chere%3E%0D%0AInquiry%3A%20%3Chere%3E ">Contact Us</a>
+        </div>  
+    {% include 'footer.html' %}
+</div>
+
+</body>
+</html>
