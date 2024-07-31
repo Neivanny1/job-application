@@ -1,6 +1,9 @@
 from flask import Flask, render_template, jsonify, request
 from db import load_jobs_from_db, load_job_from_db, add_application_to_db
+
 app = Flask(__name__)
+
+
 JOBS = load_jobs_from_db()
 job = load_job_from_db(id)
 @app.route('/')
@@ -14,7 +17,7 @@ def show_job(id):
         return "No Match", 404
     return render_template('jobpage.html', job=job)
 
-@app.route('/api/jobs')
+@app.route('/api/jobs/')
 def jobs():
     return jsonify(JOBS)
 
@@ -37,4 +40,4 @@ def apply_the_jobs_api(id):
     return jsonify(data,job)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    app.run(host='0.0.0.0', port=8000)

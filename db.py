@@ -1,14 +1,12 @@
 from sqlalchemy import create_engine, text
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-# db_uri.py
-def get_db_uri():
-    with open('db_uri', 'r') as file:
-        return file.read().strip()
-db_uri = get_db_uri()
-
+db_uri = os.environ.get('db_uri')
 engine = create_engine(db_uri)
-                                            
+
+
 def load_jobs_from_db():
     with engine.connect() as conn:
         # Execute your SQL query

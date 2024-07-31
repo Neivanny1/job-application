@@ -6,7 +6,7 @@ GRANT ALL PRIVILEGES ON `my_api`.* TO 'mwakazi'@'localhost';
 GRANT SELECT ON `performance_schema`.* TO 'mwakazi'@'localhost';
 FLUSH PRIVILEGES;
 -- creates jobs table in database
-CREATE TABLE jobs (
+CREATE TABLE IF NOT EXISTS jobs (
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(120) NOT NULL,
   location VARCHAR(120) NOT NULL,
@@ -35,7 +35,7 @@ VALUES
 
 
 -- creates application tables in database
-CREATE TABLE applications (
+CREATE TABLE IF NOT EXISTS applications (
   id INT NOT NULL AUTO_INCREMENT,
   job_id INT NOT NULL,
   full_name VARCHAR(250) NOT NULL,
